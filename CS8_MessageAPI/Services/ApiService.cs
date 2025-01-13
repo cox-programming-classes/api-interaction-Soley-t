@@ -16,7 +16,7 @@ public class ApiService
     private readonly HttpClient client = new HttpClient()
     {
         BaseAddress =
-            new("http://forms-dev.winsor.edu")
+            new("https://api.adviceslip.com/advice")
     };
     
     public async Task Login(string email, string password, ErrorAction onError)
@@ -80,7 +80,7 @@ public class ApiService
     }
     
     private async Task<HttpRequestMessage> BuildRequest(HttpMethod method, string endpoint, string jsonContent = "",
-        bool authorize = true)
+        bool authorize = false)
     {
         var request = new HttpRequestMessage(method, endpoint);
 
